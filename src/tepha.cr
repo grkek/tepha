@@ -11,8 +11,9 @@ session = Tepha::Session.new
 
 client =
   Tepha::Client.new(
-    session,
-    [
+    name: "PlaceOS",
+    session: session,
+    commands: [
       Tepha::Commands::Echo.new,
       Tepha::Commands::Greeting.new,
     ] of Tepha::Command

@@ -5,7 +5,7 @@ module Tepha
     property id : String
     property keywords : Hash(String, Command)
 
-    def initialize(@session : Session, @commands : Array(Command))
+    def initialize(@name : String, @session : Session, @commands : Array(Command))
       @rooms = Api::Rooms.new(@session)
       @people = Api::People.new(@session)
       @messages = Api::Messages.new(@session)
@@ -88,8 +88,8 @@ module Tepha
               # Ack that this message has been processed. This will prevent the message coming again.
               socket.send({"type" => "ack", "messageId": id}.to_json)
 
-              if message.text.starts_with?("PlaceOS")
-                message.text = message.text.sub("PlaceOS", "").strip
+              if message.text.starts_with?(@name)
+                message.text = message.text.sub(@name, "").strip
               end
 
               keyword = message.text.split.first.downcase
