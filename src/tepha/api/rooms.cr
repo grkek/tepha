@@ -26,7 +26,6 @@ module Tepha
 
       def create(room_id : String = "", parent_id : String = "", to_person_id : String = "", to_person_email : String = "", text : String = "", markdown : String = "") : Models::Message
         json = Utils.hash_from_items_with_values(roomId: room_id, parentId: parent_id, toPersonId: to_person_id, toPersonEmail: to_person_email, text: text, markdown: markdown)
-        pp json
         response = @session.post([Constants::MESSAGES_ENDPOINT, "/"].join(""), json: json)
         Models::Message.from_json(response.body)
       end

@@ -1,8 +1,8 @@
 module Tepha
   module Commands
     class Greeting < Command
-      def keyword : String
-        "hello"
+      def keywords : Array(String)
+        ["hello", "hi"]
       end
 
       def description : String

@@ -12,7 +12,8 @@ module Tepha
 
       @keywords =
         @commands
-          .map { |command| {"#{command.keyword}" => command} }
+          .map { |command| command.keywords.map { |keyword| {"#{keyword}" => command} } }
+          .flatten
           .reduce { |acc, i| acc.try(&.merge(i.not_nil!)) }
 
       @id = @people.me.id

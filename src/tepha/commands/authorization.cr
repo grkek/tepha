@@ -1,8 +1,8 @@
 module Tepha
   module Commands
-    class Echo < Command
+    class Authorization < Command
       def keywords : Array(String)
-        ["echo"]
+        ["auth"]
       end
 
       def description : String
@@ -10,7 +10,8 @@ module Tepha
       end
 
       def execute(_event, message)
-        {"id" => message.room_id, "text" => message.text}
+        instance_url, token = message.text.split
+        {"id" => message.room_id, "text" => "Instance URL: #{instance_url}, Token: #{token}"}
       end
     end
   end

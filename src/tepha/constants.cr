@@ -29,7 +29,7 @@ module Tepha
       "deviceType"     => "DESKTOP",
       "localizedModel" => "crystal",
       "model"          => "crystal",
-      "name"           => "101",
+      "name"           => ENV["INSTANCE_URL"]? || UUID.random.to_s,
       "systemName"     => "tepha-client",
       "systemVersion"  => VERSION,
     }

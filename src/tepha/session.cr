@@ -45,7 +45,6 @@ module Tepha
 
           return response
         rescue e : Exceptions::StatusCode
-          pp response
           Log.error(exception: e) { }
         rescue e : Exceptions::RateLimit
           Log.error(exception: e) { }
