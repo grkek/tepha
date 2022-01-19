@@ -9,7 +9,7 @@ module Tepha
         "This command simply responds to hello, hi, how are you, etc."
       end
 
-      def execute(_event, message)
+      def execute(_event, _keyword, message)
         {"id" => message.room_id, "text" => "👋"}
       end
     end

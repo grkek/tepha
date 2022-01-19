@@ -19,8 +19,14 @@ module Tepha
         @[JSON::Field(key: "verb")]
         property verb : String
 
+        @[JSON::Field(key: "actor")]
+        property actor : Actor
+
         @[JSON::Field(key: "target")]
         property target : Target
+
+        @[JSON::Field(key: "clientTempId")]
+        property client_temp_id : String?
       end
     end
   end

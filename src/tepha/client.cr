@@ -97,7 +97,7 @@ module Tepha
 
               if @keywords[keyword]?
                 message.text = message.text.sub(keyword, "").strip
-                message = @keywords[keyword].execute(event, message)
+                message = @keywords[keyword].execute(event, keyword, message)
 
                 room_id = message["id"]? || ""
                 parent_id = message["parent_id"]? || ""
@@ -110,7 +110,6 @@ module Tepha
               else
               end
             end
-          elsif activity.verb == "cardAction"
           else
           end
         end

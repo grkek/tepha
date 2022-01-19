@@ -9,7 +9,7 @@ module Tepha
         "This command simply replies your message!"
       end
 
-      def execute(_event, message)
+      def execute(_event, _keyword, message)
         {"id" => message.room_id, "text" => message.text}
       end
     end
